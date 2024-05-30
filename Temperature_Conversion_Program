@@ -1,0 +1,42 @@
+# Function to convert temperatures
+def convert_temperature(temp, unit):
+    if unit == 1:
+        celsius = temp
+        fahrenheit = (temp * 9/5) + 32
+        kelvin = temp + 273.15
+        return celsius, fahrenheit, kelvin
+    elif unit == 2:
+        fahrenheit = temp
+        celsius = (temp - 32) * 5/9
+        kelvin = celsius + 273.15
+        return celsius, fahrenheit, kelvin
+    elif unit == 3:
+        kelvin = temp
+        celsius = kelvin - 273.15
+        fahrenheit = (celsius * 9/5) + 32
+        return celsius, fahrenheit, kelvin
+    else:
+        return None
+
+# Input temperature from user
+temp = float(input("Enter the temperature: "))
+
+# Display unit choices
+print("Select a unit of your choice from the list given below:")
+print("1. Celsius")
+print("2. Fahrenheit")
+print("3. Kelvin")
+
+# Input unit choice from user
+unit = int(input("Enter your choice: "))
+
+# Convert and display the temperatures
+result = convert_temperature(temp, unit)
+
+if result:
+    celsius, fahrenheit, kelvin = result
+    print(f"Temperature in Celsius is: {celsius:.2f}")
+    print(f"Temperature in Fahrenheit is: {fahrenheit:.2f}")
+    print(f"Temperature in Kelvin is: {kelvin:.2f}")
+else:
+    print("You've entered the wrong choice.")
